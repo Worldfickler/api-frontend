@@ -12,21 +12,28 @@
  */
 export default [
   {
+    path: '/',
+    name: '主页',
+    icon: 'smile',
+    component: './Index'
+  },
+  {
+    path: '/interface_info/:id',
+    name: '查看接口',
+    icon: 'smile',
+    component: './InterfaceInfo',
+    // hideInMenu: 'true'
+  },
+  {
     path: '/user',
     layout: false,
     routes: [
       {
-        name: 'login',
+        name: '登录',
         path: '/user/login',
         component: './User/Login',
       },
     ],
-  },
-  {
-    path: '/welcome',
-    name: 'welcome',
-    icon: 'smile',
-    component: './Welcome',
   },
   {
     path: '/admin',
@@ -35,25 +42,12 @@ export default [
     access: 'canAdmin',
     routes: [
       {
-        path: '/admin',
-        redirect: '/admin/sub-page',
-      },
-      {
-        path: '/admin/sub-page',
-        name: 'sub-page',
-        component: './Admin',
+        name: '接口管理',
+        icon: 'table',
+        path: '/admin/interface_info',
+        component: './Admin/interfaceInfo',
       },
     ],
-  },
-  {
-    name: 'list.table-list',
-    icon: 'table',
-    path: '/list',
-    component: './TableList',
-  },
-  {
-    path: '/',
-    redirect: '/welcome',
   },
   {
     path: '*',
